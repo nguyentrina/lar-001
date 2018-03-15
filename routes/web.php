@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admincp',function (){
+    return view('admin.layouts.app');
+});
+Route::get('/admincp/pr-category','admin\ProCategoriesController@index');
