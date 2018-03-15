@@ -8,7 +8,7 @@
 <div class="sidebar-nav navbar-collapse">
     <ul class="nav" id="side-menu">
         <li>
-            <a href="/admincp"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+            <a href=""><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
         </li>
         <li>
             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Sản phẩm<span class="fa arrow"></span></a>
@@ -26,10 +26,10 @@
             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Danh mục sản phẩm<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
                 <li>
-                    <a href="#">Danh mục</a>
+                    <a href="{{action('admin\ProCategoriesController@index')}}">Danh mục</a>
                 </li>
                 <li>
-                    <a href="#">Thêm danh mục</a>
+                    <a href="{{action('admin\ProCategoriesController@create')}}">Thêm danh mục</a>
                 </li>
             </ul>
             <!-- /.nav-second-level -->
