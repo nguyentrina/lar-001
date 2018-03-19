@@ -5,41 +5,26 @@
  * Time: 10:26 AM
  */
 ?>
-<div class="sidebar-nav navbar-collapse">
-    <ul class="nav" id="side-menu">
-        <li>
-            <a href=""><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-        </li>
-        <li>
-            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Sản phẩm<span class="fa arrow"></span></a>
-            <ul class="nav nav-second-level">
-                <li>
-                    <a href="#">Danh sách sản phẩm</a>
-                </li>
-                <li>
-                    <a href="#">Thêm sản phẩm</a>
-                </li>
-            </ul>
-            <!-- /.nav-second-level -->
-        </li>
-        <li>
-            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Danh mục sản phẩm<span class="fa arrow"></span></a>
-            <ul class="nav nav-second-level">
-                <li>
-                    <a href="{{action('admin\ProCategoriesController@index')}}">Danh mục</a>
-                </li>
-                <li>
-                    <a href="{{action('admin\ProCategoriesController@create')}}">Thêm danh mục</a>
-                </li>
-            </ul>
-            <!-- /.nav-second-level -->
-        </li>
-        <li>
-            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
-        </li>
-        <li>
-            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
-        </li>
-    </ul>
+
+<div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="{{asset('images/secret-smile-icon.png')}}" alt="User Image">
+    <div>
+        <p class="app-sidebar__user-name">Nguyễn Trị</p>
+        <p class="app-sidebar__user-designation">Frontend Developer</p>
+    </div>
 </div>
-<!-- /.sidebar-collapse -->
+<ul class="app-menu">
+    <li><a class="app-menu__item active" href=""><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+    <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Sản phẩm</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <ul class="treeview-menu">
+            <li><a class="treeview-item" href="{{action('admin\ProductsController@index')}}"><i class="icon fa fa-circle-o"></i>Danh sách sản phẩm</a></li>
+            <li><a class="treeview-item" href="{{action('admin\ProductsController@create')}}"><i class="icon fa fa-circle-o"></i>Thêm sản phẩm</a></li>
+        </ul>
+    </li>
+    <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Danh mục sản phẩm</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <ul class="treeview-menu">
+            <li><a class="treeview-item" href="{{action('admin\ProCategoriesController@index')}}"><i class="icon fa fa-circle-o"></i>Danh mục sản phẩm</a></li>
+            <li><a class="treeview-item" href="{{action('admin\ProCategoriesController@create')}}"><i class="icon fa fa-circle-o"></i>Thêm danh mục sản phẩm</a></li>
+        </ul>
+    </li>
+    <li><a class="app-menu__item" href="l"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Charts</span></a></li>
+

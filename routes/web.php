@@ -27,8 +27,9 @@ Route::get('/admin',function (){
 //Route::get('/admin/pr-category','admin\ProCategoriesController@index');
 
 Route::namespace('admin')->prefix('admin')->as('admin.')->group(function (){
-//    Route::get('product-category','ProCategoriesController@index')->name('pro-category');
-//    Route::get('create-product-category','ProCategoriesController@create')->name('pro-category-create');
-//    Route::post('store-product-category','ProCategoriesController@store')->name('pro-category-store');
-    Route::resource('product-category', 'ProCategoriesController', ['only' => ['index','create', 'edit', 'update', 'destroy','store']]);
+    Route::resource('product-category', 'ProCategoriesController', ['only' => ['index','create', 'store', 'edit', 'update', 'destroy']]);
+    Route::resource('product', 'ProductsController', ['only' => ['index','store','create', 'edit', 'update', 'destroy']]);
 });
+/*Route::get('/admin/product','admin\ProductsController@index');
+Route::post('/admin/product','admin\ProductsController@store');*/
+Route::post('image','Images@store');

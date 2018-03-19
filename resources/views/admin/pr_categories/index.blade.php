@@ -12,32 +12,39 @@
 @section('css')
     <!-- DataTables CSS -->
     <link href="{{asset('css/dataTables.bootstrap.css')}}" rel="stylesheet">
-
     <!-- DataTables Responsive CSS -->
     <link href="{{asset('css/dataTables.responsive.css')}}" rel="stylesheet">
 @endsection
 @section('content')
     <div class="col-lg-12">
-        <div class="panel panel-default">
-            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Tên danh mục</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($data as $item)
-                    <tr class="odd">
-                        <td>{{$item->id}}</td>
-                        <td>{{$item->category_name}}</td>
-                        <td><a herf="">Sửa</a> | <a href="{{action('admin\ProCategoriesController@destroy',['id'=>$item->id])}}">Xóa</a> </td>
+        <div class="tile">
+            <div class="tile-body">
+                <table width="100%" class="table table-hover table-bordered" id="dataTables">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên danh mục</th>
+                        <th></th>
                     </tr>
-                @endforeach
-                </tbody>
-            </table>
-            <!-- /.table-responsive -->
+                    </thead>
+                    <tbody>
+                    @foreach($data as $item)
+                        <tr class="odd">
+                            <td>{{$item->id}}</td>
+                            <td>{{$item->category_name}}</td>
+                            <td><a href="{{action('admin\ProCategoriesController@edit',['id'=>$item->id])}}" class="btn btn-primary" style="float: left;">Sửa</a>
+                                <form action="{{action('admin\ProCategoriesController@destroy',$item->id)}}" method="post" style="float: left; margin-left:8px; ">
+                                    @csrf
+                                    <input name="_method" type="hidden" value="DELETE">
+                                    <input type="submit" value="Xóa " class="btn btn-danger">
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+                <!-- /.table-responsive -->
+            </div>
         </div>
         <!-- /.panel -->
     </div>
@@ -47,14 +54,8 @@
 
 @section('javascript')
     <!-- DataTables JavaScript -->
-    <script src="{{asset('js/jquery.dataTables.min.j')}}s"></script>
-    <script src="{{asset('js/dataTables.bootstrap.min.js')}}"></script>
-    <script src="{{asset('js/dataTables.responsive.js')}}"></script>
-    <script>
-        $(document).ready(function() {
-            $('#dataTables').DataTable({
-                responsive: true
-            });
-        });
-    </script>
+    <!-- Data table plugin-->
+    <script type="text/javascript" src="{{asset('js/plugins/jquery.dataTables.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/plugins/dataTables.bootstrap.min.js')}}"></script>
+    <script type="text/javascript">$('#dataTables').DataTable();</script>
 @endsection
